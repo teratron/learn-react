@@ -5,7 +5,7 @@ import React from 'react'
 //import Hook from './Effect'
 //import Hook from './State'
 //import Hook from './Memo'
-import Hook from './Сontext'
+import Hook from './Context'
 
 function App() {
     return (

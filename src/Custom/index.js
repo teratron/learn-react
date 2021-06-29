@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 
 function useLogger(value) {
     useEffect(() => {
@@ -7,6 +7,7 @@ function useLogger(value) {
 }
 
 function useInput(initialValue) {
+    //console.log('2')
     const [value, setValue] = useState(initialValue)
     const ref = useRef(null)
 
@@ -18,8 +19,9 @@ function useInput(initialValue) {
         setValue('')
     }
 
-    function focus() {
+    function focused() {
         ref.current.focus()
+        ref.current.style.backgroundColor = 'red'
     }
 
     return {
@@ -29,18 +31,19 @@ function useInput(initialValue) {
             onChange
         },
         clear,
-        focus
+        focused
     }
 }
 
 function Hook() {
+    //console.log('1')
     const input = useInput('')
 
     useLogger(input.attr.value)
 
     function handleClear() {
         input.clear()
-        input.focus()
+        input.focused()
     }
 
     return (
